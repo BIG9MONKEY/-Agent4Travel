@@ -37,35 +37,7 @@ class TestRAGFramework(unittest.TestCase):
         # 处理 PDF 文件
         pdf_processor.process_pdfs()
 
-    # # 测试RAG主流程
-    # def test_rag(self):
-    #     from app.rag.rag import RagManager
-    #     from app.models.model import get_qwen_models
-    #
-    #     llm, chat, embed = get_qwen_models()
-    #     try:
-    #         rag = RagManager(host="localhost", port=8000, llm=llm, embed=embed)
-    #         query = "请你帮我概括糖尿病的食管并发症的相关研究内容"
-    #
-    #         # 获取检索结果
-    #         search_results = rag.search_documents(query)
-    #         print("\n检索到的文档信息：")
-    #         for i, doc in enumerate(search_results, 1):
-    #             print(f"\n文档 {i}:")
-    #             print(f"来源: {doc.metadata.get('source', '未知')}")
-    #             print(f"页码: {doc.metadata.get('page', '未知')}")
-    #             print("内容:")
-    #             print("-" * 50)
-    #             print(doc.page_content)
-    #             print("-" * 50)
-    #
-    #         # 获取最终回答
-    #         result = rag.get_result(query)
-    #         print("\n最终回答：")
-    #         print(result)
-    #
-    #     except Exception as e:
-    #         self.fail(f"RAG test failed with exception: {e}")
+
 
     def test_rag_process(self):
         """测试RAG主流程"""

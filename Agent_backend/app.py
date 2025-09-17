@@ -107,7 +107,7 @@ def is_time_sensitive_query(query: str) -> str:
     return "否"
 
 # 高德地图API Key
-AMAP_KEY = "d851d09e56f0c05719f939bb4749bda8"
+AMAP_KEY = "你的高德地图API Key"
 # 高德地图附近POI查询工具
 @tool
 def search_nearby_pois(location: str, keyword: str, radius: int = 1000, city: str = None) -> str:
@@ -339,7 +339,7 @@ def get_hefeng_weather(city_name: str) -> str:
             return f"数据框中没有找到Location_ID列，可用的列名: {city_df.columns.tolist()}"
             
         city_id = city_info['Location_ID'].values[0]
-        api_key = "19e7c4c7f8c24e769d2e38722ec5c7ea"
+        api_key = "你的和风天气API Key"
         
         # 构建API请求URL - 使用24小时预报API
         url = f"https://devapi.qweather.com/v7/weather/24h?location={city_id}&key={api_key}"
