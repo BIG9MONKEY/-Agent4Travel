@@ -1,0 +1,328 @@
+/* 全局样式 */
+:root {
+  --primary-color: #3498db;
+  --primary-light: rgba(52, 152, 219, 0.2);
+  --secondary-color: #2c3e50;
+  --background-color: #f0f0f0;
+  --container-color: #fff;
+  --border-color: #ddd;
+  --text-color: #333;
+  --text-secondary: #666;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --border-radius: 4px;
+  --transition: all 0.3s ease;
+}
+
+/* 添加全局滚动样式 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+body {
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* 容器样式 */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* 顶部样式 */
+header {
+  background-color: #f4f4f9;
+  color: #333;
+  text-align: center;
+  padding: 1em 0;
+  flex-shrink: 0;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-container h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* 边栏样式 */
+.sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.sidebar:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: inherit;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidebar ul li:hover {
+  background-color: #e6e6e6;
+}
+
+.conversation-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 新建会话按钮 */
+button.new-conversation {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: center;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+button.new-conversation:hover {
+  background-color: #45a049;
+}
+
+/* 聊天容器样式 */
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* 聊天消息区域 */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 消息气泡样式 */
+.message {
+  max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: var(--primary-light);
+  color: var(--secondary-color);
+  border-radius: 12px 12px 0 12px;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: #f0f0f0;
+  color: var(--text-color);
+  border-radius: 12px 12px 12px 0;
+}
+
+/* 加载指示器 */
+.typing-indicator {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin: 0 1px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* 输入框样式 */
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: #f4f4f9;
+  border-top: 1px solid #ddd;
+}
+
+.user-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.send-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.send-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* 天气样式 */
+.weather-box {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 天气图标样式 */
+.forecast-desc img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+/* 侧边栏样式 */
+#sidebar {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.session-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.session-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.session-item:hover {
+  background-color: #f9f9f9;
+}
+
+.session-item.active {
+  background-color: #f0f0f0;
+}
+
+.new-session-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  #chat-container, .weather-box {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .input-box {
+    padding: 10px;
+  }
+  
+  .user-input {
+    padding: 8px 12px;
+  }
+  
+  .send-button {
+    width: 32px;
+    height: 32px;
+  }
+}
